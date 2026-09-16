@@ -1,0 +1,8 @@
+{
+  "block.demagnetizer.demagnetizer": "Demagnetizer",
+  "screen.demagnetizer.title": "Demagnetizer",
+  "screen.demagnetizer.range": "Range: %s",
+  "screen.demagnetizer.show_range.on": "Show Range: On",
+  "screen.demagnetizer.show_range.off": "Show Range: Off",
+  "screen.demagnetizer.powered": "Disabled by Redstone"
+}

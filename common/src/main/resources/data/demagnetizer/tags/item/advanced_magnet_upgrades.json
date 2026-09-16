@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "sophisticatedbackpacks:advanced_magnet_upgrade", "required": false },
+    { "id": "sophisticatedstorage:advanced_magnet_upgrade", "required": false }
+  ]
+}

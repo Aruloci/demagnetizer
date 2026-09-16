@@ -7,4 +7,21 @@ dependencies {
     // which get remapped to the correct annotations on each platform.
     // Do NOT use other classes from Fabric Loader.
     modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+
+    // Sophisticated Core (Fabric port). Common is Fabric-flavoured under the hood, so the Fabric
+    // artifact is the one that remaps cleanly here. Compile-only: it gives us the magnet API
+    // (IMagnetPreventionChecker) and the mixin target (MagnetUpgradeWrapper).
+    modCompileOnly "maven.modrinth:9jxwkYQL:$rootProject.sophisticatedcore_fabric_version"
+    // Compile-only so Loom remaps the Core port with Fabric API on the classpath: the port implements Fabric API
+    // interfaces that extend vanilla ones, and without them the remapper misses inherited method names
+    // (AbstractMethodError on MenuProvider#getDisplayName at runtime). Common code must still not use Fabric API.
+    modCompileOnly "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
+
+    testImplementation platform("org.junit:junit-bom:$rootProject.junit_version")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
 }

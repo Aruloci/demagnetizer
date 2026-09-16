@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "M",
+    "I",
+    "R"
+  ],
+  "key": {
+    "M": { "tag": "demagnetizer:advanced_magnet_upgrades" },
+    "I": { "tag": "c:ingots/iron" },
+    "R": { "tag": "c:dusts/redstone" }
+  },
+  "result": {
+    "id": "demagnetizer:demagnetizer",
+    "count": 1
+  }
+}

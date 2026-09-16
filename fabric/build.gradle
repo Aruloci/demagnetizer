@@ -24,11 +24,35 @@ configurations {
     }
 }
 
+repositories {
+    // Porting Lib, a jar-in-jar dependency of the Sophisticated Core Fabric port (dev run only).
+    maven {
+        name = 'devOS'
+        url = 'https://mvn.devos.one/snapshots/'
+    }
+}
+
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
+
+    // Sophisticated Core + Backpacks (Fabric ports) and what they need at runtime. Dev run only.
+    modCompileOnly "maven.modrinth:9jxwkYQL:$rootProject.sophisticatedcore_fabric_version"
+    modLocalRuntime "maven.modrinth:9jxwkYQL:$rootProject.sophisticatedcore_fabric_version"
+    modLocalRuntime "maven.modrinth:ouNrBQtq:$rootProject.sophisticatedbackpacks_fabric_version"
+    modLocalRuntime "maven.modrinth:ohNO6lps:$rootProject.forgeconfigapiport_version"
+
+    // NightConfig, nested in Forge Config API Port. Plain library, Maven Central.
+    localRuntime "com.electronwill.night-config:core:$rootProject.nightconfig_version"
+    localRuntime "com.electronwill.night-config:toml:$rootProject.nightconfig_version"
+
+    // The Core port's nested libraries (see gradle.properties). Team Reborn Energy lives on the FabricMC maven.
+    modLocalRuntime("teamreborn:energy:$rootProject.teamreborn_energy_version") { transitive = false }
+    ['core', 'conditions', 'transfer', 'lazy_registration', 'fluids', 'level_events', 'render_types', 'model_loader', 'loot', 'item_abilities'].each { module ->
+        modLocalRuntime("io.github.fabricators_of_create.Porting-Lib:$module:$rootProject.porting_lib_version") { transitive = false }
+    }
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')

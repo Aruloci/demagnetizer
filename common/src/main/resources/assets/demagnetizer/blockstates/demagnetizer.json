@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "demagnetizer:block/demagnetizer"
+    },
+    "powered=true": {
+      "model": "demagnetizer:block/demagnetizer_off"
+    }
+  }
+}

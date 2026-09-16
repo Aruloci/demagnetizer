@@ -2,24 +2,20 @@
   "schemaVersion": 1,
   "id": "demagnetizer",
   "version": "${version}",
-  "name": "Demagnetizer for Sophisticated Backpacks",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Demagnetizer",
+  "description": "An item that disables Sophisticated Storage magnet upgrades inside a configurable cube. Requires Sophisticated Core.",
   "authors": [
-    "Me!"
+    "aruloci"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
+  "contact": {},
   "license": "CC0-1.0",
-  "icon": "assets/demagnetizer/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.aruloci.demagnetizer.fabric.ExampleModFabric"
+      "com.aruloci.demagnetizer.fabric.DemagnetizerFabric"
     ],
     "client": [
-      "com.aruloci.demagnetizer.fabric.client.ExampleModFabricClient"
+      "com.aruloci.demagnetizer.fabric.client.DemagnetizerFabricClient"
     ]
   },
   "mixins": [
@@ -29,9 +25,10 @@
     "fabricloader": ">=0.19.5",
     "minecraft": "~1.21.1",
     "java": ">=21",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "sophisticatedcore": "*"
   },
-  "suggests": {
-    "another-mod": "*"
+  "recommends": {
+    "sophisticatedbackpacks": "*"
   }
 }

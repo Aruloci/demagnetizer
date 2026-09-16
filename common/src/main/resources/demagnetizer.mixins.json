@@ -6,6 +6,7 @@
   "client": [
   ],
   "mixins": [
+    "MagnetUpgradeWrapperMixin"
   ],
   "injectors": {
     "defaultRequire": 1
